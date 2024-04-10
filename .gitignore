@@ -1,8 +1,10 @@
 .vs/
-.idea/
+Flights.Server/obj/Debug/net8.0
+Flights.Server/bin/Debug/net8.0
 
 # Ignore build artifacts and configuration files
 *.suo
 *.user
 *.userprefs
 *.sln.docstates
+
