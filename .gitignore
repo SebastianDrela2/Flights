@@ -1,0 +1,8 @@
+.vs/
+.idea/
+
+# Ignore build artifacts and configuration files
+*.suo
+*.user
+*.userprefs
+*.sln.docstates
