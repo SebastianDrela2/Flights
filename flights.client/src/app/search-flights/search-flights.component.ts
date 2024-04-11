@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './search-flights.component.css'
 })
 export class SearchFlightsComponent implements OnInit {
-    ngOnInit(): void {
+
+
+  title = "Search Flights";
+
+  ngOnInit(): void
+  {
         
-    }
+  }
 
 }
