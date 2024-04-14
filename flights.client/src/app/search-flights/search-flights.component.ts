@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
-import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-flights',
