@@ -2,8 +2,8 @@
 {
     public class TimePlaceRm
     {
-        public string Place;
-        public DateTime Time;
+        public string Place { get; set; }
+        public DateTime Time { get; set; }
 
         public TimePlaceRm(string place, DateTime time)
         {

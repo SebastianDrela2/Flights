@@ -17,7 +17,7 @@ namespace Flights.Server.Controllers
         [HttpGet]
         public IEnumerable<FlightRm> GetFlights()
         {            
-            return new List<FlightRm>
+            return new FlightRm[]
             {
                 new FlightRm(Guid.NewGuid(), "Polish Air Lines", 
                     new TimePlaceRm("Warsaw", DateTime.Now), 

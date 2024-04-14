@@ -2,12 +2,12 @@
 {
     public class FlightRm
     {
-        public Guid Id;
-        public string AirLine;
-        public TimePlaceRm Arival;
-        public TimePlaceRm Departure;
-        public string Price;
-        public int RemainingNumOfSits;
+        public Guid Id { get; set; }
+        public string AirLine { get; set; }
+        public TimePlaceRm Arival { get; set; }
+        public TimePlaceRm Departure { get; set; }
+        public string Price { get; set; }
+        public int RemainingNumOfSits { get; set; }
 
         public FlightRm(Guid id, string airLine, TimePlaceRm arival, TimePlaceRm departure, string price, int remainingNumOfSits)
         {
