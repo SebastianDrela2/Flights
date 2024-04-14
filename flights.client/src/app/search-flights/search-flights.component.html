@@ -66,44 +66,44 @@
 
 </div>
 
+<div *ngIf="searchResult | async as flights">
+  <div *ngFor="let flight of flights">
+    <div class="card text-dark mt-5 text-center">
+      <div class="card-body" style="padding:20px; background-color:lightgray">
+        <h6 class="card-title">{{flight.airline}}</h6>
+        <div class="card-title" style="color:darkorange">
+          {{flight.remainingNumOfSits}} avaliable seats.
+        </div>
 
-<div *ngFor="let flight of searchResult">
-  <div class="card text-dark mt-5 text-center">
-    <div class="card-body" style="padding:20px; background-color:lightgray">
-      <h6 class="card-title">{{flight.airline}}</h6>
-      <div class="card-title" style="color:darkorange">
-        {{flight.remainingNumOfSits}} avaliable seats.
-      </div>
-
-      <div class="d-grid text-center g-2">
-        <div class="row">
-          <div class="col">
-
-            <div class="col m-3">
-              <i class="text-primary fas fa-plane-departure" style="font-size:20px"></i>
-            </div>
-
+        <div class="d-grid text-center g-2">
+          <div class="row">
             <div class="col">
-              <i class="fa-solid fa-location-dot">
-                {{flight.departure.place}}
 
-              </i>
+              <div class="col m-3">
+                <i class="text-primary fas fa-plane-departure" style="font-size:20px"></i>
+              </div>
 
+              <div class="col">
+                <i class="fa-solid fa-location-dot">
+                  {{flight.departure.place}}
+
+                </i>
+
+              </div>
+
+              <div class="col m-2">
+                <i class="fa-regular"></i>
+                {{flight.departure.time | date}}
+
+
+              </div>
+
+              <div class="col">
+                <i class="fa-regular fa-clock"></i>
+                {{flight.departure.time | date:'shortTime'}}
+
+              </div>
             </div>
-
-            <div class="col m-2">
-              <i class="fa-regular"></i>
-              {{flight.departure.time | date}}
-
-
-            </div>
-
-            <div class="col">
-              <i class="fa-regular fa-clock"></i>
-              {{flight.departure.time | date:'shortTime'}}
-
-            </div>
-          </div>
 
             <div class="col">
               <div style="display:flex">
@@ -149,7 +149,8 @@
 
               </div>
 
-            </div>          
+            </div>
+          </div>
         </div>
       </div>
     </div>

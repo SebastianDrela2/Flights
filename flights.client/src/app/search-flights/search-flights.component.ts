@@ -3,45 +3,39 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-search-flights',
   templateUrl: './search-flights.component.html',
-  styleUrl: './search-flights.component.css'
+  styleUrls: ['./search-flights.component.css'] // Corrected property name
 })
 export class SearchFlightsComponent implements OnInit {
 
   title = "Search Flights";
 
-  searchResult: FlightRm[] = [
-    {
-        airline: "Polish AirLines",
-        arival: {time: Date.now().toString(), place: "Warsaw"},
-        departure: { time: Date.now().toString(), place: "Krakow" },
-        price: '600',
-        remainingNumOfSits: 500
-    },
-    {
-        airline: "Cloudy Fliers",
-        arival: { time: Date.now().toString(), place: "San Francisco" },
-        departure: { time: Date.now().toString(), place: "New York" },
-        price: '350',
-        remainingNumOfSits: 60
-    },
-    {
-        airline: "NineTail Birds",
-        arival: { time: Date.now().toString(), place: "London" },
-        departure: { time: Date.now().toString(), place: "Cambridge" },
-        price: '350',
-        remainingNumOfSits: 60
-    }
-  ]  
+  searchResult: Promise<FlightRm[]> = this.getFlightData()
 
-  ngOnInit(): void
-  {
-        
+  ngOnInit(): void {
+
+  }
+
+  async getFlightData(): Promise<FlightRm[]> {
+    try {
+      var response = await fetch("https://localhost:49604/flights").then(response => response.json());
+
+      if (!response.ok)
+      {
+        throw new Error(`HTTP request failed with status code ${response.status}`);
+      }
+
+      return response;   
+    }
+    catch (error)
+    {
+      console.error('An error occurred:', error);
+      throw error;
+    }
   }
 
 }
 
-export interface FlightRm
-{
+export interface FlightRm {
   airline: string,
   arival: TimePlaceRm,
   departure: TimePlaceRm,
@@ -49,8 +43,7 @@ export interface FlightRm
   remainingNumOfSits: number
 }
 
-export interface TimePlaceRm
-{
+export interface TimePlaceRm {
   place: string,
   time: string
 }
