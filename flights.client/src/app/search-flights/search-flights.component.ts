@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-flights',
@@ -11,23 +14,22 @@ export class SearchFlightsComponent implements OnInit {
 
   searchResult: Promise<FlightRm[]> = this.getFlightData()
 
-  ngOnInit(): void {
+  constructor(private http: HttpClient) { }
+
+  ngOnInit(): void
+  {
 
   }
 
   async getFlightData(): Promise<FlightRm[]> {
     try {
-      var response = await fetch("https://localhost:49604/flights").then(response => response.json());
-
-      if (!response.ok)
-      {
-        throw new Error(`HTTP request failed with status code ${response.status}`);
+      const response = await this.http.get<FlightRm[]>("https://localhost:49604/flights").toPromise();
+      if (response && Array.isArray(response)) {
+        return response;
+      } else {
+        throw new Error('Invalid response format');
       }
-
-      return response;   
-    }
-    catch (error)
-    {
+    } catch (error) {
       console.error('An error occurred:', error);
       throw error;
     }
