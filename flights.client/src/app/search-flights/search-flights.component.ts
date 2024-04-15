@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchFlightsComponent implements OnInit {
 
+  avaliableFunds = 5000;
   title = "Search Flights";
 
   searchResult: Promise<FlightRm[]> = this.getFlightData()
@@ -22,6 +23,7 @@ export class SearchFlightsComponent implements OnInit {
   buyTicket(flight: FlightRm): void
   {
     flight.remainingNumOfSits--;
+    this.avaliableFunds -= Number(flight.price);
   }
 
   async getFlightData(): Promise<FlightRm[]> {
