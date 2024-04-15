@@ -19,15 +19,24 @@ export class SearchFlightsComponent implements OnInit {
 
   }
 
+  buyTicket(flight: FlightRm): void
+  {
+    flight.remainingNumOfSits--;
+  }
+
   async getFlightData(): Promise<FlightRm[]> {
-    try {
+    try
+    {
       const response = await this.http.get<FlightRm[]>("https://localhost:49604/flights").toPromise();
-      if (response && Array.isArray(response)) {
-        return response;
-      } else {
-        throw new Error('Invalid response format');
+      if (response && Array.isArray(response))
+      {
+         return response;
       }
-    } catch (error) {
+
+      throw new Error('Invalid response format');
+    }
+    catch (error)
+    {
       console.error('An error occurred:', error);
       throw error;
     }
@@ -35,7 +44,8 @@ export class SearchFlightsComponent implements OnInit {
 
 }
 
-export interface FlightRm {
+export interface FlightRm
+{
   airline: string,
   arival: TimePlaceRm,
   departure: TimePlaceRm,
@@ -43,7 +53,8 @@ export interface FlightRm {
   remainingNumOfSits: number
 }
 
-export interface TimePlaceRm {
+export interface TimePlaceRm
+{
   place: string,
   time: string
 }
