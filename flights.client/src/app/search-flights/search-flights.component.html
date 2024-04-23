@@ -1,69 +1,78 @@
-<h6>>Avaliable Expenses: {{avaliableFunds}}$</h6>
+<table style="margin: 0 auto;">
+    <tr>
+        <td style="text-align: center;"><h6>Avaliable Expenses: {{avaliableFunds}}$</h6></td>
+    </tr>
+    <tr>
+        <td style="text-align: center;"><h6>Last Booked Flight: {{lastBookedFlight}}</h6></td>
+    </tr>
+</table>
+
+
 <h5 class="text-md-center m-5">Search for flights</h5>
 
 <div class="m-5 d-grid gap-3">
 
 
-  <div class="row">
+    <div class="row">
 
-    <div class="col">
-      <div class="form-floating">
-        <input placeholder="From" class="form-control" />
-        <label class="text-primary form-label">From</label>
-      </div>
+        <div class="col">
+            <div class="form-floating">
+                <input placeholder="From" class="form-control" />
+                <label class="text-primary form-label">From</label>
+            </div>
 
-    </div>
+        </div>
 
-    <div class="col">
-      <div class="form-floating">
-        <input placeholder="Destination" class="form-control" />
-        <label class="text-primary form-label">Destination</label>
-      </div>
+        <div class="col">
+            <div class="form-floating">
+                <input placeholder="Destination" class="form-control" />
+                <label class="text-primary form-label">Destination</label>
+            </div>
 
-    </div>
-
-  </div>
-
-  <div class="row">
-
-    <div class="col">
-      <div class="form-floating">
-        <input type="date" placeholder="From Date" class="form-control" />
-        <label class="text-primary form-label">From Date</label>
-      </div>
+        </div>
 
     </div>
 
-    <div class="col">
-      <div class="form-floating">
-        <input type="date" placeholder="To Date" class="form-control" />
-        <label class="text-primary form-label">To Date</label>
-      </div>
+    <div class="row">
+
+        <div class="col">
+            <div class="form-floating">
+                <input type="date" placeholder="From Date" class="form-control" />
+                <label class="text-primary form-label">From Date</label>
+            </div>
+
+        </div>
+
+        <div class="col">
+            <div class="form-floating">
+                <input type="date" placeholder="To Date" class="form-control" />
+                <label class="text-primary form-label">To Date</label>
+            </div>
+
+        </div>
 
     </div>
 
-  </div>
+    <div class="row">
 
-  <div class="row">
+        <div class="col text-end">
+            <label class="form-label">Number of Passengers</label>
+        </div>
 
-    <div class="col text-end">
-      <label class="form-label">Number of Passengers</label>
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-text">For</div>
+                <input class="form-control" type="number" placeholder="1" />
+                <div class="input-group-text">Passengers</div>
+
+                <button type="submit" class="btn-primary btn">
+                    <i class="fas fa-search"></i>
+
+                </button>
+            </div>
+        </div>
+
     </div>
-
-    <div class="col">
-      <div class="input-group">
-        <div class="input-group-text">For</div>
-        <input class="form-control" type="number" placeholder="1" />
-        <div class="input-group-text">Passengers</div>
-
-        <button type="submit" class="btn-primary btn">
-          <i class="fas fa-search"></i>
-
-        </button>
-      </div>
-    </div>
-
-  </div>
 
 </div>
 

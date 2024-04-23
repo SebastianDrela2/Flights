@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FlightMessage } from '../service/FlightMessage';
 
 @Component({
   selector: 'app-search-flights',
@@ -7,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchFlightsComponent implements OnInit {
 
-  avaliableFunds = 5000;
-  title = "Search Flights";
+  avaliableFunds: number = 5000;
+  title: string = "Search Flights";
+  lastBookedFlight: string = "";
 
   constructor() { }
 
@@ -17,8 +19,9 @@ export class SearchFlightsComponent implements OnInit {
 
   }
 
-  onNotify(message: number)
+  onNotify(message: FlightMessage)
   {
-    this.avaliableFunds -= message;
+    this.avaliableFunds -= message.flightCost;
+    this.lastBookedFlight = message.flightDetail;
   }
 }
