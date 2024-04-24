@@ -15,12 +15,14 @@ namespace Flights.Server.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<FlightRm> GetFlights()
-        {            
+        public IEnumerable<FlightRm> GetFlights() => GetSampleFlights();
+      
+        private IEnumerable<FlightRm> GetSampleFlights()
+        {
             return new FlightRm[]
             {
-                new FlightRm(Guid.NewGuid(), "Polish Air Lines", 
-                    new TimePlaceRm("Warsaw", DateTime.Now), 
+                new FlightRm(Guid.NewGuid(), "Polish Air Lines",
+                    new TimePlaceRm("Warsaw", DateTime.Now),
                     new TimePlaceRm("Krakow", DateTime.Now), "500", _random.Next(1, 1000)),
 
                 new FlightRm(Guid.NewGuid(), "Cloudy Fliers",
@@ -30,6 +32,10 @@ namespace Flights.Server.Controllers
                 new FlightRm(Guid.NewGuid(), "NineTail Birds",
                     new TimePlaceRm("London", DateTime.Now),
                     new TimePlaceRm("Cambridge", DateTime.Now), "5", _random.Next(1, 1000)),
+
+                 new FlightRm(Guid.NewGuid(), "Spirit Air Lines",
+                    new TimePlaceRm("Miami", DateTime.Now),
+                    new TimePlaceRm("Poland", DateTime.Now), "700", _random.Next(1, 1000)),
             };
         }
     }
